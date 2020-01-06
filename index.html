@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<title>Pomodoro</title>
+		<!-- <link rel="stylesheet" href="css/nomalize.css" /> -->
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/tipografia.css" />
+	</head>
+
+	<body class="body" id="body">
+		<div class="setting" id="setting">
+			<div class="setting__header" id="close-menu">
+				<div class="setting__closet">
+					<i class="fas fa-times"></i>
+				</div>
+				<h3 class="setting__header--title t2">Settings</h3>
+			</div>
+			<div class="setting__container">
+				<div class="setting__container--input">
+					<label class="setting__container--label normal"
+						>Ringing volumen</label
+					>
+					<input class="input" type="range" name="" />
+				</div>
+
+				<div class="setting__container--input">
+					<label class="setting__container--label normal">Work Duration</label>
+					<select class="input">
+						<option>15:00</option>
+						<option>20:00</option>
+						<option>25:00</option>
+						<option>30:00</option>
+						<option>35:00</option>
+						<option>40:00</option>
+					</select>
+				</div>
+
+				<div class="setting__container--input normal">
+					<label class="setting__container--label normal"
+						>Short Break Duration</label
+					>
+					<select class="input">
+						<option>5:00</option>
+						<option>10:00</option>
+						<option>15:00</option>
+					</select>
+				</div>
+
+				<div class="setting__container--input normal">
+					<label class="setting__container--label normal"
+						>Short Break Duration</label
+					>
+					<select class="input">
+						<option>20:00</option>
+						<option>25:00</option>
+						<option>30:00</option>
+						<option>35:00</option>
+						<option>40:00</option>
+					</select>
+				</div>
+
+				<div class="setting__container--input normal">
+					<label class="setting__container--label normal">Lenguaje</label>
+					<select class="input">
+						<option>English</option>
+						<option>Spanish</option>
+					</select>
+				</div>
+
+				<div
+					class="setting__container--input normal"
+					id="pomodoro-clock-actions"
+				>
+					<label class="setting__container--label">Work Duration</label>
+					<input
+						name="input-work-duration"
+						id="input-work-duration"
+						type="number"
+						class="input"
+					/>
+				</div>
+				<div class="setting__container--input normal">
+					<label class="setting__container--label">Break Duration</label>
+					<input
+						name="input-break-duration"
+						id="input-break-duration"
+						type="number"
+						class="input"
+					/>
+				</div>
+				<div class="setting__container--input normal">
+					<label class="setting__container--label normal"
+						>Browser Notification</label
+					>
+					<input type="checkbox" name="" />
+				</div>
+
+				<button class="setting__button">Save</button>
+			</div>
+		</div>
+
+		<header class="header">
+			<div id="settings-menu">
+				<i class="fas fa-bars"></i>
+			</div>
+
+			<div class="header__background" id="setting-color">
+				<i class="fas fa-adjust"></i>
+			</div>
+		</header>
+
+		<div class="pomodoro" id="pomodoro-container">
+			<div class="pomodoro__container">
+				<h2 class="pomodoro__container--title t1">Pomodoro</h2>
+				<img class="pomodoro__container--img tossing" src="media/tomato.png" />
+				<h2 class="pomodoro__container--clock t1" id="clock">00:00</h2>
+			</div>
+
+			<div class="pomodoro__actions" id="pomodoro-actions">
+				<button class="button paused normal" id="paused">
+					Paused
+				</button>
+				<button class="button stop normal" id="stop">Stop</button>
+			</div>
+
+			<div class="pomodoro__types">
+				<button class="button start normal " id="work">Work</button>
+				<button class="button start normal" id="longBreak">Long</button>
+				<button class="button start normal" id="shortBreak">Short</button>
+			</div>
+
+			<div class="pomodoro__task" id="pomodoro-info">
+				<h4 class="pomodoro__task--title t2">Your Sessions</h4>
+				<div class="pomodoro__task--border"></div>
+				<label class="pomodoro__task--label t3">Tasks:</label>
+				<input
+					type="text"
+					id="pomodoro-clock-task"
+					placeholder="Enter your task"
+					class="pomodoro__task--input"
+					maxlength="38"
+				/>
+				<ul class="pomodoro__task--ul normal" id="pomodoro-sessions"></ul>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="footer__container--name normal">Cesar Armas</div>
+			<div class="footer__social">
+				<div class="footer__social--networks">
+					<a href="https://facebook.com/cesararmas96" target="__blank"
+						><img class="icon" src="media/facebook.svg"/></a
+					><a href="https://twitter.com/cesararmas96" target="__blank"
+						><img class="icon" src="media/twitter.svg"/></a
+					><a href="https://youtube.com/cesararmas96" target="__blank"
+						><img class="icon" src="media/youtube.svg"
+					/></a>
+				</div>
+			</div>
+		</footer>
+	</body>
+
+	<script src="vendor/js/fontawesome.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/setting.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+</html>
