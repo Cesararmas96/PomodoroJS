@@ -26,32 +26,51 @@
 					<input class="input" type="range" name="" />
 				</div>
 
-				<div class="setting__container--input">
-					<label class="setting__container--label normal">Work Duration</label>
-					<select class="input">
-						<option>15:00</option>
-						<option>20:00</option>
-						<option>25:00</option>
-						<option>30:00</option>
-						<option>35:00</option>
-						<option>40:00</option>
+				<div
+					class="setting__container--input normal"
+					id="pomodoro-clock-actions"
+				>
+					<label class="setting__container--label">Work Duration</label>
+
+					<select
+						id="input-work-duration"
+						name="input-work-duration"
+						class="input"
+					>
+						<option>15</option>
+						<option>20</option>
+						<option selected="true">25</option>
+						<option>30</option>
+						<option>35</option>
+						<option>40</option>
+						<option>45</option>
 					</select>
+					<!-- <input
+						name="input-work-duration"
+						id="input-work-duration"
+						type="number"
+						class="input"
+					/> -->
 				</div>
 
 				<div class="setting__container--input normal">
 					<label class="setting__container--label normal"
 						>Short Break Duration</label
 					>
-					<select class="input">
-						<option>5:00</option>
-						<option>10:00</option>
-						<option>15:00</option>
+					<select
+						id="input-break-long-duration"
+						name="input-break-long-duration"
+						class="input"
+					>
+						<option>5</option>
+						<option>10</option>
+						<option selected="true">15</option>
 					</select>
 				</div>
 
 				<div class="setting__container--input normal">
 					<label class="setting__container--label normal"
-						>Short Break Duration</label
+						>Long Break Duration</label
 					>
 					<select class="input">
 						<option>20:00</option>
@@ -70,18 +89,6 @@
 					</select>
 				</div>
 
-				<div
-					class="setting__container--input normal"
-					id="pomodoro-clock-actions"
-				>
-					<label class="setting__container--label">Work Duration</label>
-					<input
-						name="input-work-duration"
-						id="input-work-duration"
-						type="number"
-						class="input"
-					/>
-				</div>
 				<div class="setting__container--input normal">
 					<label class="setting__container--label">Break Duration</label>
 					<input

@@ -20,9 +20,10 @@ let currentTaskLabel = document.querySelector("#pomodoro-clock-task");
 
 // Tiempo de Duracion del contador
 // In seconds = 25min
-let currentTimeLeftInSession = 20;
-let workSessionDuration = 20;
+let currentTimeLeftInSession = 1500;
+let workSessionDuration = 1500;
 
+// let currentBreakTimeLeftInSession = 300;
 let breakSessionDuration = 300;
 
 let isRunning = false;
@@ -35,7 +36,7 @@ let updateWorkSessionDuration;
 let updateBreakSessionDuration;
 
 let workDurationInput = document.querySelector("#input-work-duration");
-let breakDurationInput = document.querySelector("#input-break-duration");
+let breakDurationInput = document.querySelector("#input-break-long-duration");
 
 workDurationInput.value = "25";
 breakDurationInput.value = "5";
@@ -54,6 +55,20 @@ const minuteToSeconds = mins => {
 	return mins * 60;
 };
 
+// const setUpdatedTimers = () => {
+// 	if (type === "Work") {
+// 		currentTimeLeftInSession = updateWorkSessionDuration
+// 			? updateWorkSessionDuration
+// 			: workSessionDuration;
+// 		workSessionDuration = currentTimeLeftInSession;
+// 	} else {
+// 		currentTimeLeftInSession = updateBreakSessionDuration
+// 			? updateBreakSessionDuration
+// 			: breakSessionDuration;
+// 		breakSessionDuration = currentTimeLeftInSession;
+// 	}
+// };
+
 const setUpdatedTimers = () => {
 	if (type === "Work") {
 		currentTimeLeftInSession = updateWorkSessionDuration
@@ -61,8 +76,8 @@ const setUpdatedTimers = () => {
 			: workSessionDuration;
 		workSessionDuration = currentTimeLeftInSession;
 	} else {
-		currentTimeLeftInSession = updatedBreakSessionDuration
-			? updatedBreakSessionDuration
+		currentTimeLeftInSession = updateBreakSessionDuration
+			? updateBreakSessionDuration
 			: breakSessionDuration;
 		breakSessionDuration = currentTimeLeftInSession;
 	}
@@ -109,32 +124,34 @@ const toogleClock = reset => {
 			isRunning = false;
 		} else {
 			//start the timer
-
+			clockTimer = setInterval(() => {
+				stepDown();
+				displayCurrentTimeLeftInSession();
+			}, 1000);
 			isRunning = true;
-			clockTimer();
 		}
 	}
 };
 
-let timersCount = 0;
-var count = "";
+// let timersCount = 0;
+// var count = "";
 
-function clockTimer() {
-	contador = 5;
-	var counter = setInterval(timer, 1000);
+// function clockTimer() {
+// 	contador = 5;
+// 	var counter = setInterval(timer, 1000);
 
-	function timer() {
-		contador = contador - 1;
-		stepDown();
-		displayCurrentTimeLeftInSession();
-		if (contador < 0) {
-			clearInterval(counter);
-			currentTimeLeftInSession;
-		}
-		count = contador;
-		isRunning = true;
-	}
-}
+// 	function timer() {
+// 		contador = contador - 1;
+// 		stepDown();
+// 		displayCurrentTimeLeftInSession();
+// 		if (contador < 0) {
+// 			clearInterval(counter);
+// 			currentTimeLeftInSession;
+// 		}
+// 		count = contador;
+// 		isRunning = true;
+// 	}
+// }
 
 // const stopClock = () => {
 //   // new
@@ -172,7 +189,7 @@ const stepDown = () => {
 			type = "Break";
 			setUpdatedTimers();
 			currentTaskLabel.value = "Break";
-			currentTaskLabel.disabled = tue;
+			currentTaskLabel.disabled = true;
 		} else {
 			currentTimeLeftInSession = workSessionDuration;
 			type = "Work";
@@ -191,7 +208,6 @@ const stepDown = () => {
 const displaySessionLog = type => {
 	const sessionsList = document.querySelector("#pomodoro-sessions");
 	const li = document.createElement("li");
-	// let sessionLabel = type;
 
 	if (type === "Work") {
 		sessionLabel = currentTaskLabel.value ? currentTaskLabel.value : "Work";
